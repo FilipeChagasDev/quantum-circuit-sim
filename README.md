@@ -11,35 +11,35 @@ By Filipe Chagas
 
 1 - Import codes:
 
-'''python
+```python
 import dirac
 import gates as qg
 import circuit as qc
-'''
+```
 
 2 - Create the n-qubits circuit object:
 
-'''python
+```python
 my_circuit = qc.QuantumCircuit( number_of_qubits )
-'''
+```
 
 3 - Add gates:
 
-'''python
+```python
 
 my_circuit.add_gate( qg.Hadamard(0) )
 my_circuit.add_gate( qg.CNot(0,1) )
-'''
+```
 
 4 - Get results:
 
-'''python
+```python
 result = my_circuit.get_result()
 result.print_math()
-'''
+```
 
 The output is:
-'''
+```
 output state:
 |φ〉 = ω0*|00〉 + ω1*|01〉 + ω2*|10〉 + ω3*|11〉
 
@@ -54,7 +54,7 @@ probabilities:
 |ω1|² = 0.0
 |ω2|² = 0.0
 |ω3|² = 0.4999999999999999
-'''
+```
 
 ## Available gates
 * Hardamard( target\_qubit )
