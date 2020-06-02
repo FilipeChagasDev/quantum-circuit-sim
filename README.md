@@ -1,7 +1,7 @@
 # Quantum Circuit Simulator
 An ideal quantum circuit simulator, without noise and decoherence.
 
-Version: 0.1.0
+Version: 0.2.0
 
 By Filipe Chagas
 
@@ -20,6 +20,7 @@ import circuit as qc
 2 - Create the n-qubits circuit object:
 
 ```python
+number_of_qubits = 2
 my_circuit = qc.QuantumCircuit( number_of_qubits )
 ```
 
@@ -27,8 +28,8 @@ my_circuit = qc.QuantumCircuit( number_of_qubits )
 
 ```python
 
-my_circuit.add_gate( qg.Hadamard(0) )
-my_circuit.add_gate( qg.CNot(0,1) )
+my_circuit.add_gate( qg.Hadamard(0) ) #Hadamard gate at q[0] qubit
+my_circuit.add_gate( qg.CNot(0,1) ) #Controled-Not with q[0] control and q[1] target
 ```
 
 4 - Get results:
@@ -57,7 +58,12 @@ probabilities:
 ```
 
 ## Available gates
-* Hardamard( target\_qubit )
-* CNot( control\_qubit , target\_qubit )
+* Hardamard ( target\_qubit )
+* Pauli-X ( target\_qubit )
+* Pauli-Y ( target\_qubit )
+* Pauli-Z ( target\_qubit )
+* Phase ( target\_qubit )
+* T ( target\_qubit )
+* CNot ( control\_qubit , target\_qubit )
 
 

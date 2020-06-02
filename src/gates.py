@@ -9,6 +9,13 @@ import numpy as np
 import math
 from dirac import *
 
+
+'''
+----------------------------------
+- - - - SINGLE QUBIT GATES - - - -
+----------------------------------
+'''
+
 '''
 Gate superclass
 '''
@@ -76,6 +83,61 @@ class Hadamard(SingleQubitGate):
     def my_matrix(self):
         return np.array([[1,1],[1,-1]], np.complex128)/math.sqrt(2)
 
+'''
+Pauli-X gate
+'''
+class PauliX(SingleQubitGate):
+    def __init__(self, target_qubit):
+        super(PauliX, self).__init__(target_qubit)
+
+    def my_matrix(self):
+        return np.array([[0,1],[1,0]], np.complex128)/math.sqrt(2)
+
+'''
+Pauli-Y gate
+'''
+class PauliY(SingleQubitGate):
+    def __init__(self, target_qubit):
+        super(PauliY, self).__init__(target_qubit)
+
+    def my_matrix(self):
+        return np.array([[0,-1j],[1j,0]], np.complex128)/math.sqrt(2)
+
+'''
+Pauli-Z gate
+'''
+class PauliZ(SingleQubitGate):
+    def __init__(self, target_qubit):
+        super(PauliZ, self).__init__(target_qubit)
+
+    def my_matrix(self):
+        return np.array([[1,0],[0,-1]], np.complex128)/math.sqrt(2)
+
+'''
+Phase gate
+'''
+class Phase(SingleQubitGate):
+    def __init__(self, target_qubit):
+        super(Phase, self).__init__(target_qubit)
+
+    def my_matrix(self):
+        return np.array([[1,0],[0,1j]], np.complex128)/math.sqrt(2)
+
+'''
+T gate
+'''
+class T(SingleQubitGate):
+    def __init__(self, target_qubit):
+        super(T, self).__init__(target_qubit)
+
+    def my_matrix(self):
+        return np.array([[1,0],[0,1j]], np.complex128)/math.sqrt(2)
+
+'''
+---------------------------------
+- - - - MULTI QUBIT GATES - - - -
+---------------------------------
+'''
 
 '''
 @brief Controled-NOT gate
@@ -122,8 +184,5 @@ class CNot(Gate):
 
 '''
 TODO:
-    X, Y, Z gates
-    S, P, S^t, P^t gates
-    Rx, Ry, Rz gates
     Toffoli gate
 '''
